@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import "./mask.css"
+import React, { useEffect, useState } from "react";
+import "./mask.less"
 
 let color = "rgb(1,255,255)"
 let lightFrom = ""
@@ -12,7 +12,7 @@ const Mask = (props, ref) => {
   const [borderPath, setBorderPath] = useState('');
 
   useEffect(() => {
-    let borderBox = document.querySelector('.dv-border-box-8')
+    let borderBox = document.querySelector('.ams-border-box-8')
     isRadius = props.isRadius
     if (isRadius) {
       // borderBox.offsetHeight * 0.1 为圆角处圆半径可进一步封装
@@ -43,37 +43,37 @@ const Mask = (props, ref) => {
 
   return (
     <>
-      <div className="dv-border-box-8" style={{ width: props.width ?? "50vw", height: props.height ?? "30vh" }}>
-        <svg className="dv-border-svg-container" >
+      <div className="ams-border-box-8" style={{ width: props.width ?? "50vw", height: props.height ?? "30vh" }}>
+        <svg className="ams-border-svg-container" width="100%" height="100%">
           <defs>
-            <path id="border-box-8-path-ce1a3374d0e04f9d9f88f516e53b9ae0"
+            <path id="ams-border-box-8-path"
               d={borderPath}
               fill="transparent">
             </path>
-            <radialGradient id="border-box-8-gradient-ce1a3374d0e04f9d9f88f516e53b9ae0" cx="50%" cy="50%" r="50%">
+            <radialGradient id="ams-border-box-8-gradient" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor={lightColor} stopOpacity="1"></stop>
               <stop offset="100%" stopColor={lightColor} stopOpacity="0"></stop>
             </radialGradient>
-            <linearGradient id="border-box-8-gradient-inside" x1="0" y1="1" x2="0" y2="0">
+            <linearGradient id="ams-border-box-8-gradient-inside" x1="0" y1="1" x2="0" y2="0">
               <stop offset="0%" stopColor="#fff" stopOpacity="0.12"></stop>
               <stop offset="20%" stopColor="#fff" stopOpacity="0.01"></stop>
               <stop offset="80%" stopColor="#fff" stopOpacity="0.01"></stop>
               <stop offset="100%" stopColor="#fff" stopOpacity="0.12"></stop>
             </linearGradient>
-            <mask id="border-box-8-mask-ce1a3374d0e04f9d9f88f516e53b9ae0">
-              <circle cx="0" cy="0" r="150" fill="url(#border-box-8-gradient-ce1a3374d0e04f9d9f88f516e53b9ae0)">
+            <mask id="ams-border-box-8-mask">
+              <circle cx="0" cy="0" r="150" fill="url(#ams-border-box-8-gradient)">
                 <animateMotion dur="3s" path={borderPath} rotate="auto" repeatCount="indefinite"></animateMotion>
               </circle>
             </mask>
-            <mask id="inside-mask">
+            <mask id="ams-inside-mask">
               <path d={borderPath} fill={lightColor}></path >
             </mask>
           </defs>
 
-          <path fill="url(#border-box-8-gradient-inside)" d={borderPath} mask="url(#inside-mask)"></path>
+          <path fill="url(#ams-border-box-8-gradient-inside)" d={borderPath} mask="url(#ams-inside-mask)"></path>
 
-          <use stroke={color} strokeWidth="2" href="#border-box-8-path-ce1a3374d0e04f9d9f88f516e53b9ae0"></use>
-          <use stroke={lightColor} strokeWidth="3" href="#border-box-8-path-ce1a3374d0e04f9d9f88f516e53b9ae0" mask="url(#border-box-8-mask-ce1a3374d0e04f9d9f88f516e53b9ae0)">
+          <use stroke={color} strokeWidth="2" href="#ams-border-box-8-path"></use>
+          <use stroke={lightColor} strokeWidth="3" href="#ams-border-box-8-path" mask="url(#ams-border-box-8-mask)">
             <animate attributeName="stroke-dasharray" from={lightFrom} to={lightTo} dur="3s" repeatCount="indefinite"></animate>
           </use>
         </svg>

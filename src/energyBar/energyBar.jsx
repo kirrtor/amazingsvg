@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react"
-import "./energyBar.css"
-
+import React, { useEffect, useState } from "react"
+import "./energyBar.less"
 
 let number = 10
 let strokeWidth = 3
-let width = ""
-let height = ""
+let width = 300
+let height = 20
 let fillColor = "rgba(3, 166, 224, 0.1)"
 let fromColor = "rgba(3, 166, 224, 1)"
 let toColor = "rgba(3, 166, 224, 0)"
@@ -19,8 +18,6 @@ const EnergyBar = (props) => {
 
   useEffect(() => {
     number = props.number && props.number !== "" ? parseInt(props.number) : number
-    width = props.width && props.width !== "" ? props.width : width
-    height = props.height && props.height !== "" ? props.height : height
     fillColor = props.color && props.color !== "" ? props.color : fillColor
     fromColor = props.fromColor && props.fromColor !== "" ? props.fromColor : fromColor
     toColor = props.toColor && props.toColor !== "" ? props.toColor : toColor
@@ -30,23 +27,15 @@ const EnergyBar = (props) => {
     strokeWidth = props.strokeWidth && props.strokeWidth !== "" ? parseInt(props.strokeWidth) : strokeWidth
     speed = props.speed && props.speed !== "" ? props.speed : speed
 
-    if ((props.width && props.width !== "") || (props.height && props.height !== "")) {
-      let time = setInterval(() => {
-        let svg = document.querySelector('.energyBar')
-        let svgW = svg.offsetWidth
-        let svgH = svg.offsetHeight
+    creatPoints(width, height, number, space, itemWidth)
 
-        if ((props.width && props.width !== "" && props.width.indexOf(svgW) !== -1) || (props.height && props.height !== "" && props.height.indexOf(svgH) !== -1)) {
-          if (props.height.indexOf(svgH) !== -1 && (props.width && props.width !== "" && props.width.indexOf(svgW) !== -1)) {
-            clearInterval(time)
-            creatPoints(svgW, svgH, number, space, itemWidth)
-          } else if (props.width.indexOf(svgW) !== -1 && (props.height && props.height !== "" && props.height.indexOf(svgH) !== -1)) {
-            clearInterval(time)
-            creatPoints(svgW, svgH, number, space, itemWidth)
-          }
-        }
-      }, 16)
-    }
+    const svg = document.querySelector('.ams-energyBar')
+    const resizeObserver = new ResizeObserver(() => {
+      let svgW = svg.offsetWidth
+      let svgH = svg.offsetHeight
+      creatPoints(svgW, svgH, number, space, itemWidth)
+    })
+    resizeObserver.observe(svg);
   }, [])
 
   const creatPoints = (svgW, svgH, number, space, itemWidth) => {
@@ -61,19 +50,18 @@ const EnergyBar = (props) => {
       }
     }
     setPointsArray(pointsList)
-    console.log(pointsList);
   }
 
   return (
     <>
       {/* svg标签无法直接使用margin：0 auto */}
-      <div className="energyBar" style={{ 'width': width, 'height': height }}>
+      <div className="ams-energyBar" style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
         <svg width="100%" height="100%">
           <defs>
             {
               pointsArray.map((item, index) => {
                 return (
-                  <polygon key={index} id={"energyBar-point" + (index + 1)} points={item}></polygon>
+                  <polygon key={index} id={"ams-energyBar-point" + (index + 1)} points={item}></polygon>
                 )
               })
             }
@@ -92,7 +80,7 @@ const EnergyBar = (props) => {
           {
             pointsArray.map((item, index) => {
               return (
-                <use key={index} href={"#energyBar-point" + (index + 1)} strokeWidth={strokeWidth} stroke={borderColor} fill={fillColor}>
+                <use key={index} href={"#ams-energyBar-point" + (index + 1)} strokeWidth={strokeWidth} stroke={borderColor} fill={fillColor}>
                   <animate attributeName="fill" from={fromColor} to={toColor} dur={speed + "s"} begin={(0 + index * 0.1) / speed + "s;"} repeatCount="indefinite" ></animate>
                 </use>
               )

@@ -3,15 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/test.js',
   module: {
     rules: [
       // 处理css
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          'less-loader'
         ]
       },
       // 处理js和jsx

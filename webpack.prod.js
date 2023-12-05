@@ -2,13 +2,32 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizaerPlugin = require('css-minimizer-webpack-plugin');
 
+// 获取处理样式的Loaders
+const getStyleLoaders = (preProcessor) => {
+  return [
+    MiniCssExtractPlugin.loader,
+    "css-loader",
+    {
+      loader: "postcss-loader",
+      options: {
+        postcssOptions: {
+          plugins: [
+            "postcss-preset-env", // 能解决大多数样式兼容性问题
+          ],
+        },
+      },
+    },
+    preProcessor,
+  ].filter(Boolean);
+};
+
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
     // 打包到lib目录下
     path: path.resolve(__dirname, 'lib'),
-    filename: 'index.js',
+    filename: 'amazingsvg.js',
     // 每次打包时，都自动清除原有的打包文件
     clean: true,
     // 发布到npm库的相关信息
@@ -22,16 +41,16 @@ module.exports = {
       type: 'umd',
       export: 'default'
     },
-    
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        use: getStyleLoaders()
+      },
+      {
+        test: /\.less$/,
+        use: getStyleLoaders("less-loader"),
       },
       {
         test: /\.jsx?$/,
@@ -42,8 +61,6 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      // 因为我们在文件中引入就是publicTest.css
-      // 所以在打包后，也用这个名字，以免引入失败
       filename: 'amazingsvg.css'
     })
   ],
@@ -58,6 +75,7 @@ module.exports = {
     ]
   },
   externals: {
+    'animaejs': 'animaejs',
     react: {
       root: 'React',
       commonjs2: 'react',

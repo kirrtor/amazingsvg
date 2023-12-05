@@ -1,9 +1,9 @@
-import "./arrow.css"
+import "./arrow.less"
 import anime from 'animejs/lib/anime.es.js';
 import React, { useEffect, useState } from "react";
 
-let width = "30px"
-let height = "120px"
+let width = 30
+let height = 120
 let itemHeight = 10
 let number = 3
 let fillColor = "rgb(1,255,255)"
@@ -17,41 +17,32 @@ const Arrow = (props) => {
     fillColor = props.fillColor && props.fillColor !== "" ? props.fillColor : fillColor
     borderColor = props.borderColor && props.borderColor !== "" ? props.borderColor : borderColor
     number = props.number && props.number !== "" ? props.number : number
-    width = props.width && props.width !== "" ? props.width : width
-    height = props.height && props.height !== "" ? props.height : height
     dep = props.dep && props.dep !== "" ? props.dep : dep
     itemHeight = props.itemHeight && props.itemHeight !== "" ? props.itemHeight : itemHeight
 
-    if ((props.width && props.width !== "") || (props.height && props.height !== "")) {
-      let time = setInterval(() => {
-        let svg = document.querySelector('.arrow')
-        let svgW = svg.offsetWidth
-        let svgH = svg.offsetHeight
-        let svgWB = svgW / 2;
-
-        if ((props.width && props.width !== "" && props.width.indexOf(svgW) !== -1) || (props.height && props.height !== "" && props.height.indexOf(svgH) !== -1)) {
-          if (props.height.indexOf(svgH) !== -1 && (props.width && props.width !== "" && props.width.indexOf(svgW) !== -1)) {
-            clearInterval(time)
-            creatPoints(svgW, svgH, svgWB)
-          }
-          if (props.width.indexOf(svgW) !== -1 && (props.height && props.height !== "" && props.height.indexOf(svgH) !== -1)) {
-            clearInterval(time)
-            creatPoints(svgW, svgH, svgWB)
-          }
-
-        }
-      }, 16)
-    }
+    creatPoints(30, 120, 15)
 
     anime({
-      targets: '.arrow g',
+      targets: '.ams-arrow g',
       scaleX: -1,
       translateY: dep + 'px',
       direction: 'alternate',
       easing: 'easeInOutSine',
       loop: true
     })
+
+    const svg = document.querySelector('.ams-arrow')
+
+    const resizeObserver = new ResizeObserver(() => {
+      let svgW = svg.offsetWidth
+      let svgH = svg.offsetHeight
+      let svgWB = svgW / 2;
+      creatPoints(svgW, svgH, svgWB)
+    });
+
+    resizeObserver.observe(svg);
   }, [])
+
 
   const creatPoints = (svgW, svgH, svgWB) => {
     let pointsList = []
@@ -75,15 +66,15 @@ const Arrow = (props) => {
   }
 
   return (
-    <div className="arrow" style={{ 'width': width, 'height': height }}>
+    <div className="ams-arrow" style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
       <svg width="100%" height="100%">
         <defs>
-          <linearGradient id="arrow-gradient" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="ams-arrow-gradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="10%" stopColor={fillColor} stopOpacity="0" />
             <stop offset="90%" stopColor={fillColor} stopOpacity="1" />
           </linearGradient>
         </defs>
-        <g fill="url(#arrow-gradient)">
+        <g fill="url(#ams-arrow-gradient)">
           {
             pointsArray.map((item, index) => {
               return (
