@@ -20,7 +20,7 @@
 
 ### 基础动画示例
 
-![Screenshot_2023_1206_103148](C:\Users\17709\Documents\Tencent Files\1770941137\FileRecv\MobileFile\Screenshot_2023_1206_103148.gif)
+![Image text](https://file.aitsign.cn/aiEnterprise/web/dev/picture/2023/1206/20231206133845GonQw_YvCpi.gif)
 
 ### （1）Arrow
 

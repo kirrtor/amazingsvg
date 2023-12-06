@@ -9,7 +9,7 @@ import "./test.less"
 
 const root = createRoot(document.getElementById("root"));
 root.render(
-  <Amazingsvg.Decoration2  />
+  <Amazingsvg.Decoration2 />
   // <Decoration className="jiu" color="rgba(1,215,250,1)" />
   // <Amazingsvg.Decoration2 />
 );

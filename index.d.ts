@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 interface ArrowProps {
   id?: ReactNode;
@@ -12,7 +12,15 @@ interface ArrowProps {
   dep?: number | string;
 }
 
-export function Arrow(props: ArrowProps): JSX.Element;
+// 声明函数组件类型
+declare module 'Arrow' {
+  const Arrow: React.FC<ArrowProps>;
+  export default Arrow;
+}
+// // 声明组件的类型
+// declare module 'Component1' {
+//   export default class Component1 extends React.Component<Component1Props> {}
+// }
 
 
 interface Decoration2Props {
@@ -25,7 +33,10 @@ interface Decoration2Props {
   lineColor?: string;
 }
 
-export function Decoration2(props: Decoration2Props): JSX.Element;
+declare module 'Decoration2' {
+  const Decoration2: React.FC<Decoration2Props>;
+  export default Decoration2;
+}
 
 
 interface Decoration5Props {
@@ -36,7 +47,10 @@ interface Decoration5Props {
   color?: string;
 }
 
-export function Decoration5(props: Decoration5Props): JSX.Element;
+declare module 'Decoration5' {
+  const Decoration5: React.FC<Decoration5Props>;
+  export default Decoration5;
+}
 
 
 interface EnergyBarProps {
@@ -55,7 +69,10 @@ interface EnergyBarProps {
   speed?: number | string;
 }
 
-export function EnergyBar(props: EnergyBarProps): JSX.Element;
+declare module 'EnergyBar' {
+  const EnergyBar: React.FC<EnergyBarProps>;
+  export default EnergyBar;
+}
 
 
 interface MaskProps {
@@ -68,4 +85,7 @@ interface MaskProps {
   lightColor?: string;
 }
 
-export function Mask(props: MaskProps): JSX.Element;
+declare module 'Mask' {
+  const Mask: React.FC<MaskProps>;
+  export default Mask;
+}
