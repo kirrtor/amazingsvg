@@ -1,11 +1,11 @@
 import React from "react";
-import "./decoration.less"
+import "./decoration2.less"
 
-const decoration = (props) => {
+const Decoration2 = (props) => {
 
   return (
     <>
-      <div className="ams-decoration" style={{ 'width': props.width ?? '150px', 'height': props.height ?? '150px' }}>
+      <div id={props.id} className={"ams-decoration" + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? '150px', 'height': props.height ?? '150px' }}>
         <svg width="100%" height="100%" viewBox="0 0 100 100">
 
           <defs>
@@ -74,4 +74,4 @@ const decoration = (props) => {
   )
 }
 
-export default decoration;
+export default Decoration2;

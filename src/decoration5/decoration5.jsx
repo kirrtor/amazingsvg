@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./decoration.less"
+import "./decoration5.less"
 
 let point1 = ""
 let point2 = ""
@@ -11,7 +11,7 @@ let point2To = ""
 let point3From = ""
 let point3To = ""
 
-const Decoration = (props) => {
+const Decoration5 = (props) => {
 
   const [pointList, setPointList] = useState([])
 
@@ -58,7 +58,7 @@ const Decoration = (props) => {
 
   return (
     <>
-      <div className="ams-decoration-5" style={{ width: props.width ?? "100vw", height: props.height ?? "80px" }}>
+      <div id={props.id} className={"ams-decoration-5" + (props.className ? " " + props.className : "")} style={{ width: props.width ?? "100vw", height: props.height ?? "80px" }}>
         <svg width="100%" height="100%">
           <defs>
             <linearGradient id="ams-decoration5-gradient1">
@@ -92,4 +92,4 @@ const Decoration = (props) => {
     </>
   )
 }
-export default Decoration;
+export default Decoration5;

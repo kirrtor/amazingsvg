@@ -1,8 +1,9 @@
 {
   "name": "amazingsvg",
-  "version": "0.0.1",
-  "description": "奇异svg首次发布",
+  "version": "0.0.2",
+  "description": "奇异svg正式发布",
   "main": "./lib/amazingsvg.js",
+  "types": "index.d.ts",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
@@ -43,9 +44,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "style-loader": "^3.3.3",
+    "typescript": "^5.3.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "postcss-loader": "^7.3.3"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
@@ -56,7 +59,5 @@
     "last 2 versions",
     "not dead"
   ],
-  "dependencies": {
-    "postcss-loader": "^7.3.3"
-  }
+  "dependencies": {}
 }

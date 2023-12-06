@@ -1,6 +1,6 @@
 import Arrow from "./arrow/arrow";
-import Decoration2 from "./decoration2/decoration";
-import Decoration5 from "./decoration5/decoration";
+import Decoration2 from "./decoration2/decoration2";
+import Decoration5 from "./decoration5/decoration5";
 import EnergyBar from "./energyBar/energyBar";
 import Mask from "./mask/mask";
 
