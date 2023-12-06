@@ -1,7 +1,7 @@
 {
   "name": "amazingsvg",
-  "version": "0.0.2",
-  "description": "奇异svg正式发布",
+  "version": "0.0.3",
+  "description": "新添自定义路径组件",
   "main": "./lib/amazingsvg.js",
   "types": "./index.d.ts",
   "scripts": {

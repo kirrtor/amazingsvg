@@ -131,7 +131,7 @@
 
 - 自定义轨迹
 
-[![Image text](https://file.aitsign.cn/aiEnterprise/web/dev/picture/2023/1206/20231206173518T8OWw_MCYXt.gif)
+![Image text](https://file.aitsign.cn/aiEnterprise/web/dev/picture/2023/1206/20231206173518T8OWw_MCYXt.gif)
 
 ```jsx
 <Amazingsvg.MapPath  />
