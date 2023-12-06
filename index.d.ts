@@ -89,3 +89,24 @@ declare module 'Mask' {
   const Mask: React.FC<MaskProps>;
   export default Mask;
 }
+
+
+interface MapPathProps {
+  id?: ReactNode;
+  className?: ReactNode;
+  gradientColor?: string;
+  dur?: number | string;
+  r?: number | string;
+  color?: string;
+  strokeWidth?: number | string;
+  from?: string;
+  to?: string;
+  isPathAnimate?: boolean;
+  isMask?: boolean;
+  isPath?: boolean;
+}
+
+declare module 'MapPath' {
+  const MapPath: React.FC<MapPathProps>;
+  export default MapPath;
+}

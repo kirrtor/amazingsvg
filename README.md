@@ -126,3 +126,28 @@
 | color      | 颜色                | string           |
 | isRadius   | 是否圆角(默认false) | number \| string |
 | lightColor | 发光颜色            | string           |
+
+### （6）mapPath
+
+- 自定义轨迹
+
+[![Image text](https://file.aitsign.cn/aiEnterprise/web/dev/picture/2023/1206/20231206173518T8OWw_MCYXt.gif)
+
+```jsx
+<Amazingsvg.MapPath  />
+```
+
+- **属性**
+
+| name          | 名称                       | 类型             |
+| ------------- | -------------------------- | ---------------- |
+| gradientColor | 渐变颜色                   | string           |
+| dur           | 持续时间                   | number \| string |
+| r             | 圆半径                     | number \| string |
+| color         | 路径颜色                   | string           |
+| strokeWidth   | 边框宽度                   | number \| string |
+| from          | 虚线空白范围               | string           |
+| to            | 虚线线条范围               | string           |
+| isPathAnimate | 是否启用路径动画(默认true) | boolean          |
+| isMask        | 是否启用遮罩(默认true)     | boolean          |
+| isPath        | 是否展示路径(默认false)    | boolean          |
