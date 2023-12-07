@@ -3,6 +3,7 @@ import Decoration2 from "./decoration2/decoration2";
 import Decoration5 from "./decoration5/decoration5";
 import EnergyBar from "./energyBar/energyBar";
 import Mask from "./mask/mask";
+import MapPath from "./mapPath/mapPath";
 
-export default { Arrow, Decoration2, Decoration5, EnergyBar, Mask }
+export default { Arrow, Decoration2, Decoration5, EnergyBar, Mask, MapPath }
 
