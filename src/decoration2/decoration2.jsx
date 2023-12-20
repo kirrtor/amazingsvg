@@ -5,7 +5,7 @@ const Decoration2 = (props) => {
 
   return (
     <>
-      <div id={props.id} className={"ams-decoration" + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? '150px', 'height': props.height ?? '150px' }}>
+      <div key={props.key} id={props.id} className={"ams-decoration" + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? '150px', 'height': props.height ?? '150px' }}>
         <svg width="100%" height="100%" viewBox="0 0 100 100">
 
           <defs>

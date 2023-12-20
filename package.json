@@ -1,7 +1,7 @@
 {
   "name": "amazingsvg",
-  "version": "0.0.3",
-  "description": "新添自定义路径组件",
+  "version": "0.0.5",
+  "description": "修复组件props相互影响问题",
   "main": "./lib/amazingsvg.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -58,5 +58,6 @@
     "> 0.25%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {}
 }

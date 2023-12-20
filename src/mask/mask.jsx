@@ -43,7 +43,7 @@ const Mask = (props, ref) => {
 
   return (
     <>
-      <div id={props.id} className={"ams-border-box-8" + (props.className ? " " + props.className : "")} style={{ width: props.width ?? "50vw", height: props.height ?? "30vh" }}>
+      <div key={props.key} id={props.id} className={"ams-border-box-8" + (props.className ? " " + props.className : "")} style={{ width: props.width ?? "50vw", height: props.height ?? "30vh" }}>
         <svg className="ams-border-svg-container" width="100%" height="100%">
           <defs>
             <path id="ams-border-box-8-path"

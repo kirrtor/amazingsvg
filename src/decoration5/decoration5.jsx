@@ -58,7 +58,7 @@ const Decoration5 = (props) => {
 
   return (
     <>
-      <div id={props.id} className={"ams-decoration-5" + (props.className ? " " + props.className : "")} style={{ width: props.width ?? "100vw", height: props.height ?? "80px" }}>
+      <div key={props.key} id={props.id} className={"ams-decoration-5" + (props.className ? " " + props.className : "")} style={{ width: props.width ?? "100vw", height: props.height ?? "80px" }}>
         <svg width="100%" height="100%">
           <defs>
             <linearGradient id="ams-decoration5-gradient1">

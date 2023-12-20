@@ -55,7 +55,7 @@ const EnergyBar = (props) => {
   return (
     <>
       {/* svg标签无法直接使用margin：0 auto */}
-      <div id={props.id} className={"ams-energyBar" + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
+      <div key={props.key} id={props.id} className={"ams-energyBar" + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
         <svg width="100%" height="100%">
           <defs>
             {

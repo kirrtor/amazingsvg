@@ -31,7 +31,7 @@ const MapPath = (props) => {
 
   return (
     <>
-      <svg id={props.id} className={"ams-svg-map-path" + (props.className ? " " + props.className : "")}>
+      <svg key={props.key} id={props.id} className={"ams-svg-map-path" + (props.className ? " " + props.className : "")}>
         <defs>
           <path id="ams-map-path-light"
             d={linePath}

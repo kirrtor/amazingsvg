@@ -66,7 +66,7 @@ const Arrow = (props) => {
   }
 
   return (
-    <div id={props.id} className={"ams-arrow " + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
+    <div key={props.key} id={props.id} className={"ams-arrow " + (props.className ? " " + props.className : "")} style={{ 'width': props.width ?? width + "px", 'height': props.height ?? height + "px" }}>
       <svg width="100%" height="100%">
         <defs>
           <linearGradient id="ams-arrow-gradient" x1="0" y1="0" x2="0" y2="1">
